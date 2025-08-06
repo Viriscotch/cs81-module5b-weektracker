@@ -12,3 +12,27 @@ const myWeek = [
 // Highest enjoyment: Painting
 // Dominant category: creative
 // Time of day patterns: evening activities tend to be longer and more enjoyable
+
+function totalPhysicalHours(data) {
+  return data
+    .filter(entry => entry.category === "physical")
+    .reduce((sum, entry) => sum + entry.hoursSpent, 0);
+}
+
+function averageEveningEnjoyment(data) {
+  const evening = data.filter(entry => entry.timeOfDay === "evening");
+  const totalEnjoyment = evening.reduce((sum, entry) => sum + entry.enjoyment, 0);
+  return (totalEnjoyment / evening.length).toFixed(1);
+}
+
+function mostCommonCategory(data) {
+  const counts = {};
+  for (let entry of data) {
+    counts[entry.category] = (counts[entry.category] || 0) + 1;
+  }
+  return Object.entries(counts).reduce((max, curr) => (curr[1] > max[1] ? curr : max))[0];
+}
+
+console.log("Total physical hours:", totalPhysicalHours(myWeek));
+console.log("Avg evening enjoyment:", averageEveningEnjoyment(myWeek));
+console.log("Most common category:", mostCommonCategory(myWeek));
