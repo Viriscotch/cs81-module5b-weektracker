@@ -1,0 +1,2 @@
+My prediction is correct. Actually it's hard to be incorrect as the calculation is quite simple at a glance. I just realized that most of my hobbies could be done indoor.
+.reduce() helped me summarize numeric data effectively.
